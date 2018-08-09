@@ -1,4 +1,4 @@
-### IIFE
+## IIFE
 Imediately Invoked Function Expression
 ```javascript
 (function(name){
@@ -6,7 +6,7 @@ Imediately Invoked Function Expression
 })("Arthur")
 ```
 
-### Closure
+## Closure
 Inner function that has access to the scope of an enclosing function
 ```javascript
 function outterFunc(param1){
@@ -18,7 +18,7 @@ function outterFunc(param1){
 outterFunc("Hello ");
 ```
 
-### This
+## This
 Keyword that refers to the object it is derectly inside.
 ```javascript
 var obj = {
@@ -32,7 +32,7 @@ var obj = {
 obj.getName();
 ```
 
-### Hoisting
+## Hoisting
 The process in which the JS interpreter finds variables and function declarations and pulls it to the top of the scope it is declared.
 It hoists the declaration but do not assign value to it.
 
@@ -51,7 +51,7 @@ let, const = block scoped (hoisted to top of the block, for loop for example)
 
 var = function scoped (hoisted to top of function)
 
-### Self
+## Self
 Maintain `this` scope reference
 ```javascript
 var myCar = {
@@ -70,18 +70,18 @@ var myCar = {
 myCar.logColor();
 ```
 
-### use strict
+## use strict
 Enforce stricter parsing and error handler:
 
 * prevent use of global variables;
 * prevent duplicate variable names in function parameters;
 
-### call and apply
+## call and apply
 * Is a method of any function in js;
 * Change the context of `this` in a function call;
 * call(context, arg1, arg2) | apply(context, [arg1, arg2])
 
-### bind()
+## bind()
 Bind `this` context of a function to a particular object.
 
 You can also bind parameteres to always be passed the same way.

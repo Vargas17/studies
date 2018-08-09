@@ -12,11 +12,30 @@
         <link rel="stylesheet" href="css/styles.css">
 
         <script src="js/lib/modernizr-2.6.2.min.js"></script>
+        <style type="text/css">
+            #nav li {
+                cursor: pointer;
+                color: blue;
+                display: inline;
+            }
+        </style>
     </head>
     <body>
         <script src="js/lib/jquery-min.js"></script>
         <script src="js/lib/underscore-min.js"></script>
         <script src="js/lib/backbone-min.js"></script>
         <script src="js/main.js"></script>
+        <ul id="nav">
+            <li data-url="home">
+                Home
+            </li>
+            <li data-url="cars">
+                Cars
+            </li>
+            <li data-url="boats">
+                Boats
+            </li>
+        </ul>
+        <div id="container"></div>
     </body>
 </html>
