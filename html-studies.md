@@ -199,29 +199,3 @@ More input attributes:
   * Content that goes between the opening and closing video tags sere as fallback content
 * `<audio>`: has the same structure as video tag and uses `src`, `controls`, `autoplay` and `loop` the same way
 * `<canvas>`: designed to provide a canvas onto which JavaScript can be used to paint all manner of dynamic images such as graphs, animated sprites, or daft cat pictures
-
-## Flexbox
-
-The “Flexible Box” or “Flexbox” layout mode offers an alternative to Floats for defining the overall appearance of a web page. Whereas floats only let us horizontally position our boxes, flexbox gives us complete control over the alignment, direction, order, and size of our boxes.
-
-Flexbox uses two types of boxes: “flex containers” and “flex items”. The job of a flex container is to group a bunch of flex items together and define how they’re positioned.
-
-* `display: flex;`: creates a flex container
-* `justify-content`: define horizontal alignment of the flex contaienr items. It can be:
-    * center;
-    * flex-start;
-    * flex-end;
-    * space-around;
-    * space-between;
-* `align-items`: defines vertical alignment of a flex container. It can be:
-    * center;
-    * flex-start;
-    * flex-end;
-    * stretch;
-    * baseline;
-* `flex-wrap: wrap;`: wraps the flex container items, bumping them to the next row so they don't overflow
-* `flex-direction`: defaults to `row`. If set to `column`, changes the main axis to vertical. Also changes the direction of justify-content and align-items. Can also be `row-reverse` or `column-reverse` (reverts display order of items)
-* `order`: Adding an order property to a flex item defines its order in the container without affecting surrounding items. Its default value is 0, and increasing or decreasing it from there moves the item to the right or left, respectively.
-* `align-self`: aligns the item itself, overiding `align-items` prop. Has the same values as align-items
-* `flex`: defines the width of individual items in a flex container. Or, more accurately, it allows them to have flexible widths. It works as a weight that tells the flex container how to distribute extra space to each item. For example, an item with a flex value of 2 will grow twice as fast as items with the default value of 1. If set to `initial`, it fallback to the static defined width.
-* Auto-margins: Auto-margins in flexbox are special. They can be used as an alternative to an extra <div> when trying to align a group of items to the left/right of a container. Think of auto-margins as a “divider” for flex items in the same container.

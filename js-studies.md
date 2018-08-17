@@ -19,7 +19,7 @@ outterFunc("Hello ");
 ```
 
 ## This
-Keyword that refers to the object it is derectly inside.
+Keyword that refers to the object it is directly inside.
 ```javascript
 var obj = {
   name: "Arthur",
