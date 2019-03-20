@@ -13,7 +13,7 @@ export const Container = styled.div`
 export const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 100vh;
   min-height: calc(100vh - ${SIZES.HEADERS});
   padding: 30px 42px;
 `;

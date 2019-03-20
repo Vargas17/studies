@@ -1,52 +1,42 @@
 export const mockData = [
   {
-    id: 0,
     type: 'text',
-    items: [
+    title: 'Outras coisas',
+    rows: [
       {
-        id: 0,
         value: 'bla'
       },
       {
-        id: 1,
         value: 'ble'
       },
       {
-        id: 2,
         value: 'bla'
       },
       {
-        id: 3,
         value: 'bla'
       },
       {
-        id: 4,
         value: 'bla'
       }
     ]
   },
   {
-    id: 1,
     type: 'data',
-    items: [
+    title: 'Coisas',
+    rows: [
       {
-        id: 0,
-        value: 'bli'
+        value: 'blim'
       },
       {
-        id: 1,
         value: 'blu'
       },
       {
-        id: 2,
         value: 'bla'
       },
       {
-        id: 3,
         value: 'bla'
       },
       {
-        id: 4,
         value: 'bla'
       }
     ]

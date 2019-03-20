@@ -1,20 +1,26 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { uid } from 'react-uid';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Container, AddColumn } from './styled';
-import { Column } from "..";
+import { Column } from '..';
 
-export class SpreadSheet extends Component {
+class SpreadSheet extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {};
   }
 
   render() {
-    const { data } = this.props;
+    const { data, handleAddClick } = this.props;
     return (
       <Container>
-        {data.map(({ id, items, type }) => (<Column key={id} items={items} type={type} />))}
-        <AddColumn>Add</AddColumn>
+        {data.map(({
+          rows, type, title
+        }, idx) => (<Column key={uid(title, idx)} rows={rows} type={type} title={title} />))}
+        <AddColumn onClick={handleAddClick}>
+          <FontAwesomeIcon icon="plus" />
+        </AddColumn>
       </Container>
     );
   }
@@ -27,5 +33,6 @@ SpreadSheet.defaultProps = {
 };
 
 SpreadSheet.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.object)
+  data: PropTypes.arrayOf(PropTypes.object),
+  handleAddClick: PropTypes.func.isRequired
 };
