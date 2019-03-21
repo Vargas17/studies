@@ -17,6 +17,9 @@ export const CellContainer = styled.div`
     border-bottom-width: 1;
     border-bottom-style: dashed;
   `}
+  ${(props) => props.error && css`
+    background-color: ${COLORS.lightRedColor};
+  `}
 `;
 
 export const CellText = styled.div`

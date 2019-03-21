@@ -15,3 +15,6 @@ export const createColumn = (title, type, amount) => ({
   title,
   rows: getEmptyRows(amount)
 });
+
+// eslint-disable-next-line prefer-spread
+export const createArrayFromNum = (length) => Array.apply(null, { length }).map(Number.call, Number);

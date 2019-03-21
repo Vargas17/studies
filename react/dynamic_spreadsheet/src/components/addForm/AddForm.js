@@ -6,15 +6,12 @@ import { Button } from '..';
 import { types } from '../../utils';
 
 class AddForm extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: '',
-      type: '',
-      errorTitle: false,
-      errorType: false
-    };
-  }
+  state = {
+    title: '',
+    type: '',
+    errorTitle: false,
+    errorType: false
+  };
 
   handleTitleChange = (e) => {
     this.setState({ title: e.target.value });

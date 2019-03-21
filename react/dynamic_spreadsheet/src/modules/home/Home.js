@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
+import update from 'immutability-helper';
 import {
   MainContainer, SpreadSheet, AddForm, Modal, Button
 } from '../../components';
 import { addEmptyRowsToAll, createColumn } from '../../utils';
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: [],
-      rowsNum: 10,
-      showModal: false
-    };
-  }
+  state = {
+    data: [],
+    rowsNum: 10,
+    showModal: false
+  };
 
   showModal = () => {
     this.setState({ showModal: true });
@@ -36,12 +34,30 @@ class Home extends Component {
     }));
   }
 
+  saveCell = (value, colIdx, cellIdx) => {
+    this.setState((prevState) => ({
+      data: update(prevState.data, { [colIdx]: { rows: { [cellIdx]: { value: { $set: value } } } } })
+    }));
+  }
+
+  saveTitle = (value, colIdx) => {
+    this.setState((prevState) => ({
+      data: update(prevState.data, { [colIdx]: { title: { $set: value } } })
+    }));
+  }
+
   render() {
-    const { data, showModal } = this.state;
+    const { data, showModal, rowsNum } = this.state;
     return (
       <MainContainer>
-        <SpreadSheet data={data} handleAddClick={this.showModal} />
-        {data.length > 0 && <Button onClick={this.handleAddClick}>Add + 10 rows</Button>}
+        <SpreadSheet
+          data={data}
+          rowsNum={rowsNum}
+          handleAddClick={this.showModal}
+          onSave={this.saveCell}
+          onSaveTitle={this.saveTitle}
+        />
+        {data.length > 0 && <Button big onClick={this.handleAddClick}>Add + 10 rows</Button>}
         <Modal show={showModal} handleClose={this.hideModal}>
           <AddForm handleSaveClick={this.createColumn} />
         </Modal>

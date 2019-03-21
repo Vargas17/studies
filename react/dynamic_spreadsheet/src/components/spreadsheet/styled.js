@@ -23,3 +23,23 @@ export const AddColumn = styled.div`
     background-color: ${COLORS.darkBackground};
   }
 `;
+
+export const IndexColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-right: 5px;
+  border-color: ${COLORS.borderColor};
+  border-width: 1px;
+  border-style: dashed;
+  background-color: ${COLORS.darkBackground};
+`;
+
+export const IndexCell = styled.div`
+  display: flex;
+  height: 70px;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  color: ${COLORS.fontColor};
+  background-color: ${COLORS.darkBackground};
+`;

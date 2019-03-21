@@ -2,6 +2,7 @@ export const COLORS = {
   darkBackground: '#F8F8FA',
   primaryColor: '#FFFFFF',
   redColor: '#C91D12',
+  lightRedColor: '#FFCCCC',
   highLightColor: '#f4792c',
   hoveredHighlight: '#e06d08',
   fontColor: '#747474',

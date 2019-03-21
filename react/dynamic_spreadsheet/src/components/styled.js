@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { COLORS, SIZES } from '../assets';
 
 export const Container = styled.div`
@@ -13,7 +13,7 @@ export const Container = styled.div`
 export const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100vh;
+  width: 100%;
   min-height: calc(100vh - ${SIZES.HEADERS});
   padding: 30px 42px;
 `;
@@ -32,4 +32,8 @@ export const Button = styled.button`
   &:hover {
     background-color: ${COLORS.darkBackground};
   }
+  ${(props) => props.big && css`
+    align-self: center;
+    width: 60%;
+  `}
 `;

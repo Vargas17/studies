@@ -5,4 +5,3 @@ export * from './column';
 export * from './cell';
 export * from './modal';
 export * from './addForm';
-export * from './editableContent';
