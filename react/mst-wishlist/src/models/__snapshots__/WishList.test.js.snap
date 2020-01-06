@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`can add new items 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "image": "",
+      "name": "The Call of Cthullu",
+      "price": 28.73,
+    },
+  ],
+}
+`;
+
+exports[`can add new items 2`] = `
+Array [
+  Object {
+    "items": Array [
+      Object {
+        "image": "",
+        "name": "Chronicles of Narnia",
+        "price": 28.73,
+      },
+    ],
+  },
+  Object {
+    "items": Array [
+      Object {
+        "image": "",
+        "name": "The Call of Cthullu",
+        "price": 28.73,
+      },
+    ],
+  },
+]
+`;
