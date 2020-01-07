@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { onSnapshot } from 'mobx-state-tree';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import { WishList } from './models/WishList';
 
-const wishList = WishList.create({
+let initialState = {
   items: [
     {
       name: 'The Call of Cthullu',
@@ -22,6 +23,17 @@ const wishList = WishList.create({
       image: 'https://picsum.photos/200'
     }
   ]
+}
+
+if (localStorage.getItem('wishlistapp')) {
+  const json = JSON.parse(localStorage.getItem('wishlistapp'))
+  if (WishList.is(json)) initialState = json
+}
+
+const wishList = WishList.create(initialState)
+
+onSnapshot(wishList, snapshot => {
+  localStorage.setItem('wishlistapp', JSON.stringify(snapshot))
 })
 
 ReactDOM.render(<App wishList={wishList} />, document.getElementById('root'));

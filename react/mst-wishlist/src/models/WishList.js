@@ -1,10 +1,4 @@
-import { types } from 'mobx-state-tree';
-
-const data = {
-  name: 'Chronicles of Narnia',
-  price: 28.73,
-  image: 'https://picsum.photos/200'
-}
+import { types, getParent, destroy } from 'mobx-state-tree';
 
 export const WishListItem = types
   .model({
@@ -18,6 +12,12 @@ export const WishListItem = types
     },
     changePrice(newPrice) {
       self.price = newPrice
+    },
+    changeImage(newImage) {
+      self.image = newImage
+    },
+    remove() {
+      getParent(self, 2).remove(self)
     }
   }))
 
@@ -28,10 +28,13 @@ export const WishList = types
   .actions(self => ({
     add(item) {
       self.items.push(item)
+    },
+    remove(item) {
+      destroy(item)
     }
   }))
   .views(self => ({
     get totalPrice() {
-      return self.items.reduce((sum, entry) => sum + entry.price, 0)
+      return self.items.reduce((sum, entry) => sum + entry.price, 0).toFixed(2)
     }
   }))
