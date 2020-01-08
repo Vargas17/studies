@@ -3,42 +3,71 @@ import ReactDOM from 'react-dom';
 import { onSnapshot } from 'mobx-state-tree';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
-import { WishList } from './models/WishList';
+import { Group } from './models/Groups';
 
 let initialState = {
-  items: [
+  users: [
     {
-      name: 'The Call of Cthullu',
-      price: 19.25,
-      image: 'https://picsum.photos/200'
+      id: 'a342',
+      name: 'Homer',
+      gender: 'm'
     },
     {
-      name: 'Zanoni',
-      price: 40,
-      image: 'https://picsum.photos/200'
+      id: '5fc2',
+      name: 'Marge',
+      gender: 'f'
     },
     {
-      name: 'Chronicles of Narnia',
-      price: 28.73,
-      image: 'https://picsum.photos/200'
+      id: '663b',
+      name: 'Bart',
+      gender: 'm'
+    },
+    {
+      id: '65aa',
+      name: 'Maggie',
+      gender: 'f'
+    },
+    {
+      id: 'ba32',
+      name: 'Lisa',
+      gender: 'f'
     }
   ]
 }
 
 if (localStorage.getItem('wishlistapp')) {
   const json = JSON.parse(localStorage.getItem('wishlistapp'))
-  if (WishList.is(json)) initialState = json
+  if (Group.is(json)) initialState = json
 }
 
-const wishList = WishList.create(initialState)
+const group = Group.create(initialState)
 
-onSnapshot(wishList, snapshot => {
+onSnapshot(group, snapshot => {
   localStorage.setItem('wishlistapp', JSON.stringify(snapshot))
 })
 
-ReactDOM.render(<App wishList={wishList} />, document.getElementById('root'));
+ReactDOM.render(<App group={group} />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+
+// items: [
+//   {
+//     name: 'The Call of Cthullu',
+//     price: 19.25,
+//     image: 'https://picsum.photos/200'
+//   },
+//   {
+//     name: 'Zanoni',
+//     price: 40,
+//     image: 'https://picsum.photos/200'
+//   },
+//   {
+//     name: 'Chronicles of Narnia',
+//     price: 28.73,
+//     image: 'https://picsum.photos/200'
+//   }
+// ]
