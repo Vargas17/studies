@@ -1,34 +1,37 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { observer } from 'mobx-react'
 import { AddTaskForm, TaskList } from './components';
-import { Task } from './types';
+import { taskStore } from './store';
 import './App.css';
 
-const data: Task[] = [
-  {
-    "id": "1",
-    "name": "Do stuff",
-    "status": "doing"
-  },
-  {
-    "id": "2",
-    "name": "enjoy more stuff",
-    "status": "done"
-  },
-  {
-    "id": "3",
-    "name": "finish errands",
-    "status": "todo"
+@observer
+class App extends Component {
+  render() {
+    return (
+      <div className='App'>
+        <h3>MOBX TODO</h3>
+        <AddTaskForm onAddTask={(taskName) => taskStore.add(taskName)} />
+        <TaskList
+          title='Todo'
+          tasks={taskStore.todoTasks}
+          onMoveTask={(task) => taskStore.move(task)}
+          onRemoveTask={(task) => taskStore.remove(task)}
+        />
+        <TaskList
+          title='Doing'
+          tasks={taskStore.doingTasks}
+          onMoveTask={(task) => taskStore.move(task)}
+          onRemoveTask={(task) => taskStore.remove(task)}
+        />
+        <TaskList
+          title='Done'
+          tasks={taskStore.doneTasks}
+          onMoveTask={(task) => taskStore.move(task)}
+          onRemoveTask={(task) => taskStore.remove(task)}
+        />
+      </div>
+    );
   }
-]
-
-const App: React.FC = () => {
-  return (
-    <div className='App'>
-      <h3>MOBX TODO</h3>
-      <AddTaskForm />
-      <TaskList title='Todo' tasks={data} />
-    </div>
-  );
 }
 
 export default App;

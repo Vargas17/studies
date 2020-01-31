@@ -1,5 +1,7 @@
 export type Task = {
   id: string;
   name: string;
-  status: 'done' | 'doing' | 'todo'
+  status: TaskStatus;
 }
+
+export type TaskStatus = 'done' | 'doing' | 'todo';
